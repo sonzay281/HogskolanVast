@@ -1,0 +1,11 @@
+E:\University West\Fullstack  Developer\Programs\Program\bin\Debug\Program.exe.config
+E:\University West\Fullstack  Developer\Programs\Program\bin\Debug\Program.exe
+E:\University West\Fullstack  Developer\Programs\Program\bin\Debug\Program.pdb
+E:\University West\Fullstack  Developer\Programs\Program\obj\Debug\Program.csproj.AssemblyReference.cache
+E:\University West\Fullstack  Developer\Programs\Program\obj\Debug\Program.csproj.SuggestedBindingRedirects.cache
+E:\University West\Fullstack  Developer\Programs\Program\obj\Debug\Program.csproj.CoreCompileInputs.cache
+E:\University West\Fullstack  Developer\Programs\Program\obj\Debug\Program.exe
+E:\University West\Fullstack  Developer\Programs\Program\obj\Debug\Program.pdb
+E:\University West\Fullstack  Developer\Programs\Program\bin\Debug\Algorithms.dll
+E:\University West\Fullstack  Developer\Programs\Program\bin\Debug\Algorithms.pdb
+E:\University West\Fullstack  Developer\Programs\Program\obj\Debug\Program.csproj.CopyComplete

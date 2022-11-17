@@ -1,0 +1,6 @@
+E:\University West\Fullstack  Developer\Programs\Algorithms\bin\Debug\Algorithms.dll
+E:\University West\Fullstack  Developer\Programs\Algorithms\bin\Debug\Algorithms.pdb
+E:\University West\Fullstack  Developer\Programs\Algorithms\obj\Debug\Algorithms.csproj.AssemblyReference.cache
+E:\University West\Fullstack  Developer\Programs\Algorithms\obj\Debug\Algorithms.csproj.CoreCompileInputs.cache
+E:\University West\Fullstack  Developer\Programs\Algorithms\obj\Debug\Algorithms.dll
+E:\University West\Fullstack  Developer\Programs\Algorithms\obj\Debug\Algorithms.pdb
