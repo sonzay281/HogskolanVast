@@ -49,14 +49,13 @@ namespace Program
                         break;
                     }
             }
-               // Console.SetCursorPosition(0, Console.CursorTop - 1);
+             
                Console.WriteLine("Would you like to repeat?[Y/N]");
                 string opt= Console.ReadLine();
                 if (opt.Equals("N")||opt.Equals("n"))
                 {
-                    Console.Write("\r" + new string(' ', Console.WindowWidth-1) + "\r"); // referenced form stackoverflow
-                 Environment.Exit(0);
-              }
+                    Environment.Exit(0);
+                }
 
             }
 

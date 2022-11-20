@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program", "..\Program\Progr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure", "..\DataStructures\DataStructure.csproj", "{96B7DF8E-5091-4229-86C6-CA6E0E705A17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileIO", "..\FileIO\FileIO.csproj", "{3061089E-8CDA-4600-A0F4-C9275F0744D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{96B7DF8E-5091-4229-86C6-CA6E0E705A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96B7DF8E-5091-4229-86C6-CA6E0E705A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96B7DF8E-5091-4229-86C6-CA6E0E705A17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3061089E-8CDA-4600-A0F4-C9275F0744D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3061089E-8CDA-4600-A0F4-C9275F0744D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3061089E-8CDA-4600-A0F4-C9275F0744D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3061089E-8CDA-4600-A0F4-C9275F0744D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
