@@ -1,23 +1,114 @@
 ﻿using Algorithms;
 using System;
-using System.Diagnostics;
+using System.Xml;
 using static Algorithms.SortUtilities;
-
+using DataStructure;
 namespace Program
 {
     internal class Program
     {
-        static void Main(string[] args)
-        {
             SortAlgorithms algorithm = new SortAlgorithms();
             SortUtilities utilities = new SortUtilities();
-
-            Console.WriteLine("\t\t\t\tPlease select one sorting algorithm or exit.");
+       
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+            Console.WriteLine("\t\t\t\tPlease select one operation");
             Console.WriteLine();
-            Console.WriteLine("1.Insertion sort \t2.Selection sort \n3.Bubble Sort  \t4.Merge sort \n5.Quick sort \t6.Exit");
+            Console.WriteLine("1. Sorting \t\t 2. Searching\t\t 3. Data Structure \t\t 4. File Handeling and Filter");
+            Console.Write("\nPlease select operation:");
+            int option = int.Parse(Console.ReadLine());
+            DSBase dataStructure= new DSBase();
 
-            Console.Write("Please select number:");
+            switch (option)
+            {
+                case 1:
+                    {
+                        new Program().SortingMenu();
+                        break;
+                    }
+                case 2:
+                    {
+                        new Program().SearchingMenu();
+                        break;
+                    }
+                case 3:
+                    {
+                        dataStructure.Menu();
+                        break;
+                    }
+                case 4:
+                    {
+                        Console.WriteLine("File handeling and other operation...");
+                        break;
+                    }
+                    default:
+                        {
+                        Console.WriteLine("Invalid Entry");
+                        break;
+                    }
+            }
+               // Console.SetCursorPosition(0, Console.CursorTop - 1);
+               Console.WriteLine("Would you like to repeat?[Y/N]");
+                string opt= Console.ReadLine();
+                if (opt.Equals("N")||opt.Equals("n"))
+                {
+                    Console.Write("\r" + new string(' ', Console.WindowWidth-1) + "\r"); // referenced form stackoverflow
+                 Environment.Exit(0);
+              }
+
+            }
+
+        }
+
+        private void SearchingMenu()
+        {
+            Console.WriteLine("\n1.Linear Search \t2.Binary Search \t3.Lambda Search");
+            Console.Write("\nPlease select searching algorithm:");
+            int option = int.Parse(Console.ReadLine());
+            SearchingDelegate searchingDelegate = null;
+
+            switch (option)
+            {
+                case 1:
+                    {
+                        searchingDelegate = algorithm.LinearSearch;
+                        break;
+                    }
+                case 2:
+                    {
+                        searchingDelegate = algorithm.BinarySearch;
+                        break;
+                    }
+                case 3:
+                    {
+                        searchingDelegate = algorithm.SearchByLambda;
+                        break;
+                    }
+            }
+            if (searchingDelegate != null)
+            {
+                int[] arrays = utilities.Prepare(1000000);
+                Array.Sort(arrays);
+
+                Console.WriteLine("With first element in the array:");
+                utilities.DisplayRunningTime("search", arrays, null, searchingDelegate, arrays[0]);
+
+                Console.WriteLine("With middle element in the array:");
+                utilities.DisplayRunningTime("search", arrays, null, searchingDelegate, arrays[(arrays.Length/2)-1]);
+
+                Console.WriteLine("With last element in the array:");
+                utilities.DisplayRunningTime("search", arrays, null, searchingDelegate, arrays[arrays.Length-1]);
+            }
+        }
+
+        private void SortingMenu()
+        {
+            Console.WriteLine("\n1.Insertion sort \t2.Selection sort \t3.Bubble Sort  \t4.Merge sort \t5.Quick sort \t6.Lambda");
+            Console.Write("\nPlease select sorting algorithm:");
             int input = int.Parse(Console.ReadLine());
+            Console.WriteLine("You  entered :  {0}", input);
 
             if (input.GetType() == typeof(int))
             {
@@ -51,9 +142,10 @@ namespace Program
                             break;
                         }
                     case 6:
-                        Console.WriteLine("Exiting program...");
-                        Environment.Exit(0);
-                        break;
+                        {
+                            sortDelegate = algorithm.SortByLambda;
+                            break;
+                        }
 
                     default:
                         Console.WriteLine("Invalid Input. Please select between 1-5.");
@@ -63,19 +155,10 @@ namespace Program
                 {
                     Console.Write("\nPlease type the desired array size for testing:");
                     int arraySize = int.Parse(Console.ReadLine());
-                    Console.WriteLine("You  entered :  {0}", input);
-                   
                     int[] arrays = utilities.Prepare(arraySize);
-                   
-                    utilities.DisplayRunningTime(arrays, sortDelegate);
-
+                    utilities.DisplayRunningTime("sort", arrays, sortDelegate);
                 }
-
             }
-
         }
-
-
-       
     }
 }

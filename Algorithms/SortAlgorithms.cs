@@ -1,6 +1,8 @@
 ﻿using System;
 using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 
 namespace Algorithms
@@ -9,7 +11,7 @@ namespace Algorithms
     {
         public SortUtilities sortUtilities=new SortUtilities();
         
-        public void  InsertionSort(int[] rawArray)
+        public int []  InsertionSort(int[] rawArray)
         {
             //Straight insertion
             int length = rawArray.Length, i, j,temp;
@@ -22,9 +24,10 @@ namespace Algorithms
                 }
                 rawArray[j+1] = temp;
             }
+            return rawArray;
         }
 
-        public void SelectionSort(int[] rawArray)
+        public int[] SelectionSort(int[] rawArray)
         {
             //Straight selection
             int length = rawArray.Length, i, j,large,index;
@@ -43,10 +46,10 @@ namespace Algorithms
                 rawArray[index] = rawArray[i];
                 rawArray[i]=large;
             }
-       
+       return rawArray;
         }
 
-        public void BubbleSort(int[] rawArray)
+        public int[] BubbleSort(int[] rawArray)
         { 
             int length=rawArray.Length, i, j;
             for (i = 0; i < length - 1; i++)
@@ -58,15 +61,16 @@ namespace Algorithms
                         sortUtilities.Swap(rawArray, j, j + 1); 
                     }
                 }
-            }  
+            }
+            return rawArray;
         }
        
-        public void QuickSort(int[] rawArray)
+        public int [] QuickSort(int[] rawArray)
         {
-           quickSort(rawArray, 0, rawArray.Length);
+           return QuickSorter(rawArray, 0, rawArray.Length-1);
         }
        
-        private void quickSort(int[]array,int low, int high)
+        private int[] QuickSorter(int[]array,int low, int high)
         {
             if (low < high)
             {
@@ -77,9 +81,10 @@ namespace Algorithms
 
                 // Separately sort elements before
                 // partition and after partition
-                quickSort(array, low, pi - 1);
-                quickSort(array, pi + 1, high);
+                QuickSorter(array, low, pi - 1);
+                QuickSorter(array, pi + 1, high);
             }
+            return array;
         }
         
         public int partition(int[] arr, int low, int high)
@@ -111,23 +116,24 @@ namespace Algorithms
             return (i + 1);
         }
         
-        public void MergeSort(int[] rawArray)
+        public int[] MergeSort(int[] rawArray)
         {
-           mergeSort(rawArray, 0, rawArray.Length);
+           return MergeSortDivider(rawArray, 0, rawArray.Length);
         }
         
-        private void mergeSort(int[] array,int beg,int end)
+        private int [] MergeSortDivider(int[] array,int beg,int end)
         {
             if (beg < end&&array.Length>0)
             {
                 int mid = (beg + end) / 2;
-                mergeSort(array, beg, mid);
-                mergeSort(array, mid + 1, end);
-                merge(array, beg, mid, end);
+                MergeSortDivider(array, beg, mid);
+                MergeSortDivider(array, mid + 1, end);
+                 Merger(array, beg, mid, end);
             }
+            return array;
         }
         
-        private void merge(int [] array,int beg,int mid,int end)
+        private int[] Merger(int [] array,int beg,int mid,int end)
         {
 
             int i, j, k;
@@ -140,7 +146,10 @@ namespace Algorithms
             
             /* copy data to temp arrays */
             for (i = 0; i < n1; i++)
+            {
                 leftArray[i] = array[beg + i];
+            }
+
             for (j = 0; j < n2; j++)
             {
                 rightArray[j] = array[mid + j];
@@ -177,10 +186,78 @@ namespace Algorithms
                 j++;
                 k++;
             }
+            return array;
+        }
+        
+        
+        
+        public int LinearSearch(int[] array, int key)
+        {
+            int index=-1;
+            for (int i = 0; i <array.Length; i++)
+            {
+                if (array[i] == key)
+                {
+                    index = i;
+                }
+            }
+            if (index>-1){
+            Console.WriteLine("\nElement {0} found in index {1}",key,index);
+            } else{
+                Console.WriteLine("Could not find element {0} in the given array.",key);
+            }
+            return index;
+        }
+
+        public int BinarySearch(int[] array,int key)
+        {
+            //array needs to be sorted for this search algorithm to work   
+            int low=0, high=array.Length-1,index=-1;
+
+            while (low <= high)
+            {
+                int mid = low + (high - low) / 2;
+                if (array[mid] == key)
+                {
+                    index = mid;
+                }
+
+                if (array[mid] < key)
+                {
+
+                    low = mid + 1;
+                }
+                else
+                {
+                    high = mid - 1;
+                }
+            }
+            if (index != -1)
+            {
+                Console.WriteLine("Found in index: {0}", index);
+            }
+            else
+            {
+                Console.WriteLine("Not Found!");
+            }
+            return index;
+           
+        }
+
+
+        public int SearchByLambda(int[]arr,int key)
+        {
+            int index = Array.IndexOf(arr, key);
+            Console.WriteLine("Element found!"+index);
+            return index;
         }
         public int[] SortByLambda(int[] rawArray)
         {
-            return Array.Sort(rawArray, (a, b) => b - a);
+         int[] newArray=rawArray.OrderBy(x=>x).ToArray();
+           return newArray;
         }
+
+
+
     }
 }
