@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <script>
+    console.log("Hello  world!");
+
+    var variable1 = 1;
+    const constant1 = 1;
+    let letVariable = 10;
+    console.log(variable1, constant1, letVariable);
+
+  
+
+    function funName1(name) {
+      console.log("Hello", name);
+    }
+    const funcName2 = (name) => {
+      console.log(`Hello ${name}`);
+    };
+
+    funName1("Divya");
+    funcName2("Tahere");
+
+    const myArray = [10, 230, 450];
+
+    const myObj = {
+      key1: "value1",
+      key2: "value3",
+      "key-one": "Value-1",
+    };
+    console.log(myObj);
+    console.log(myArray);
+
+    console.log("Select first index form array:", myArray[0]);
+    console.log("Selecting value form Object:", myObj.key1);
+
+    console.log("Selecting value form Object other way:", myObj["key1"]);
+
+   
+    const btnClick = () => {
+      const input1 = document.getElementById("input1");
+      const input2 = document.getElementById("input2");
+      const display = document.getElementById("display");
+      display.innerText =
+        "Result:" + (Number(input1.value) + Number(input2.value));
+    };
+
+    class Test {
+      name;
+      constructor(name) {
+        this.name = name;
+      }
+
+      sayHello() {
+        console.log("Hello from class ", this.name);
+      }
+    }
+
+    const test = new Test();
+    test.sayHello("Tahaeere");
+  </script>
+
+  <body>
+    <div>
+      <input type="text" id="input1" />
+      +
+      <input type="text" id="input2" />
+
+      <button id="addBtn" onclick="btnClick()">Add</button>
+      <br />
+      <br />
+      <p id="display">Result will replace it...</p>
+    </div>
+  </body>
+  
+</html>
