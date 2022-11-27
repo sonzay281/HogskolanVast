@@ -29,24 +29,23 @@ namespace Algorithms
 
         public int[] SelectionSort(int[] rawArray)
         {
-            //Straight selection
-            int length = rawArray.Length, i, j,large,index;
+            int length = rawArray.Length, i, j,min,index;
             for (i = length - 1; i > 0; i--)
             {
-                large = rawArray[0];
+                min = rawArray[0];
                 index = 0;
-                for (j = 1; j <=i; j++)
+                for (j = i+1; j <=i; j++)
                 {
-                    if (rawArray[j] > large)
+                    if (rawArray[j] > min)
                     {
-                        large=rawArray[j];
+                        min =rawArray[j];
                         index = j;
                     }
                 }
                 rawArray[index] = rawArray[i];
-                rawArray[i]=large;
+                rawArray[i]=min;
             }
-       return rawArray;
+            return rawArray;
         }
 
         public int[] BubbleSort(int[] rawArray)
